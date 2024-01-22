@@ -7,7 +7,7 @@ package to do database transactions, parse files, and sort activities.
 # Installation
 
 ```sh
-$ go install github.com/vanillaiice/veranocli@latest
+$ go install github.com/vanillaiice/veranocli/cmd/veranocli@latest
 ```
 
 # Features
@@ -30,7 +30,7 @@ USAGE:
    verano cli [global options] command [command options] 
 
 VERSION:
-   v0.0.1
+   v0.0.7
 
 AUTHOR:
    Vanillaiice <vanillaiice1@proton.me>
