@@ -2,7 +2,7 @@
 
 CLI tool to manage activities in a project.
 This package uses under the hood the [verano](https://github.com/vanillaiice/verano)
-package to do database transaction, parse files, and sort activities.
+package to do database transactions, parse files, and sort activities.
 
 # Installation
 
