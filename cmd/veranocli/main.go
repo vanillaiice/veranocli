@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 	"os"
-	"veranocli/commands"
 
 	"github.com/urfave/cli/v2"
+	"github.com/vanillaiice/veranocli/commands"
 )
 
 func main() {

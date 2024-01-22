@@ -1,4 +1,4 @@
-module veranocli
+module github.com/vanillaiice/veranocli
 
 go 1.21.5
 

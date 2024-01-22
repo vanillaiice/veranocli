@@ -1,11 +1,10 @@
 package commands
 
 import (
-	"veranocli"
-
 	"github.com/urfave/cli/v2"
 	"github.com/vanillaiice/verano/activity"
 	"github.com/vanillaiice/verano/db"
+	"github.com/vanillaiice/veranocli"
 )
 
 // DB returns a command for handling database transactions in the CLI.

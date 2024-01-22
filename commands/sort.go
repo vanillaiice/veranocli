@@ -2,12 +2,12 @@ package commands
 
 import (
 	"time"
-	"veranocli"
 
 	"github.com/goccy/go-graphviz"
 	"github.com/urfave/cli/v2"
 	"github.com/vanillaiice/verano/graph"
 	"github.com/vanillaiice/verano/util"
+	"github.com/vanillaiice/veranocli"
 )
 
 // Sort returns a command for topologically sorting activities.

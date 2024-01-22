@@ -1,12 +1,11 @@
 package commands
 
 import (
-	"veranocli"
-
 	"github.com/goccy/go-graphviz"
 	"github.com/urfave/cli/v2"
 	"github.com/vanillaiice/verano/graph"
 	"github.com/vanillaiice/verano/util"
+	"github.com/vanillaiice/veranocli"
 )
 
 // Parse returns a command for parsing activities in various formats such as JSON, CSV, and XLSX.
