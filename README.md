@@ -1,4 +1,4 @@
-# Verano
+# Verano CLI
 
 CLI tool to manage activities in a project.
 This package uses under the hood the [verano](https://github.com/vanillaiice/verano)
