@@ -8,6 +8,9 @@ import (
 	"github.com/vanillaiice/verano/db"
 )
 
+// DB returns a command for handling database transactions in the CLI.
+// It supports subcommands for inserting, deleting, getting, and updating activities in the database.
+// The command takes optional flags for specifying the database path, file for insertion, and other options.
 func DB() (cmd *cli.Command) {
 	return &cli.Command{
 		Name:    "db",
