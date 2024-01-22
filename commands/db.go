@@ -4,7 +4,7 @@ import (
 	"github.com/urfave/cli/v2"
 	"github.com/vanillaiice/verano/activity"
 	"github.com/vanillaiice/verano/db"
-	"github.com/vanillaiice/veranocli/vcli"
+	"github.com/vanillaiice/veranocli"
 )
 
 // DB returns a command for handling database transactions in the CLI.
@@ -47,17 +47,17 @@ func DB() (cmd *cli.Command) {
 					},
 				},
 				Action: func(ctx *cli.Context) error {
-					activities, err := vcli.Parse(ctx.Path("file"))
+					activities, err := veranocli.Parse(ctx.Path("file"))
 					if err != nil {
 						return err
 					}
 
 					if ctx.Bool("ignore") {
-						err = vcli.InsertActivities(activities, ctx.Path("db"), db.Ignore)
+						err = veranocli.InsertActivities(activities, ctx.Path("db"), db.Ignore)
 					} else if ctx.Bool("replace") {
-						err = vcli.InsertActivities(activities, ctx.Path("db"), db.Replace)
+						err = veranocli.InsertActivities(activities, ctx.Path("db"), db.Replace)
 					} else {
-						err = vcli.InsertActivities(activities, ctx.Path("db"))
+						err = veranocli.InsertActivities(activities, ctx.Path("db"))
 					}
 
 					return err
@@ -75,7 +75,7 @@ func DB() (cmd *cli.Command) {
 					},
 				},
 				Action: func(ctx *cli.Context) error {
-					err := vcli.DeleteActivities(ctx.Path("db"), ctx.IntSlice("id"))
+					err := veranocli.DeleteActivities(ctx.Path("db"), ctx.IntSlice("id"))
 					return err
 				},
 			},
@@ -116,9 +116,9 @@ func DB() (cmd *cli.Command) {
 					)
 
 					if ctx.Bool("all") {
-						activities, err = vcli.GetActivitiesAll(ctx.Path("db"))
+						activities, err = veranocli.GetActivitiesAll(ctx.Path("db"))
 					} else {
-						activities, err = vcli.GetActivities(ctx.Path("db"), ctx.IntSlice("id"))
+						activities, err = veranocli.GetActivities(ctx.Path("db"), ctx.IntSlice("id"))
 					}
 					if err != nil {
 						return err
@@ -126,9 +126,9 @@ func DB() (cmd *cli.Command) {
 
 					if !ctx.Bool("quiet") {
 						if ctx.Bool("raw") {
-							vcli.PrintRaw(activities)
+							veranocli.PrintRaw(activities)
 						} else {
-							vcli.PrintPretty(activities, !ctx.Bool("plain"))
+							veranocli.PrintPretty(activities, !ctx.Bool("plain"))
 						}
 					}
 
@@ -156,7 +156,7 @@ func DB() (cmd *cli.Command) {
 					},
 				},
 				Action: func(ctx *cli.Context) error {
-					err := vcli.UpdateActivity(ctx.Path("db"), ctx.Int("id"), ctx.String("field"), ctx.String("value"))
+					err := veranocli.UpdateActivity(ctx.Path("db"), ctx.Int("id"), ctx.String("field"), ctx.String("value"))
 					return err
 				},
 			},
