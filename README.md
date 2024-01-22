@@ -61,6 +61,8 @@ Id  Description   Duration  Start             Finish            Cost
 6   Get money     36h0m0s   1 Jan 0001 00:00  1 Jan 0001 00:00  0      
 ```
 
+![activities](https://github.com/vanillaiice/veranocli/assets/120596571/2c55d72a-40f2-4293-bdc2-58de09bb91f8)
+
 # Author
 
 Vanillaiice
