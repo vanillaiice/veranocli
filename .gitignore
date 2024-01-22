@@ -1,0 +1,7 @@
+Makefile
+bin
+main
+*.csv
+*.xlsx
+*.json
+*.db
