@@ -1,4 +1,4 @@
-package veranocli
+package vcli
 
 import (
 	"fmt"

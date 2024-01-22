@@ -5,7 +5,7 @@ import (
 	"github.com/urfave/cli/v2"
 	"github.com/vanillaiice/verano/graph"
 	"github.com/vanillaiice/verano/util"
-	"github.com/vanillaiice/veranocli"
+	"github.com/vanillaiice/veranocli/vcli"
 )
 
 // Parse returns a command for parsing activities in various formats such as JSON, CSV, and XLSX.
@@ -49,22 +49,22 @@ func Parse() (cmd *cli.Command) {
 			},
 		},
 		Action: func(ctx *cli.Context) error {
-			activities, err := veranocli.Parse(ctx.Path("file"))
+			activities, err := vcli.Parse(ctx.Path("file"))
 			if err != nil {
 				return err
 			}
 
 			if !ctx.Bool("quiet") {
 				if ctx.Bool("raw") {
-					veranocli.PrintRaw(activities)
+					vcli.PrintRaw(activities)
 				} else {
-					veranocli.PrintPretty(activities, !ctx.Bool("plain"))
+					vcli.PrintPretty(activities, !ctx.Bool("plain"))
 				}
 			}
 
 			if ctx.Path("graph") != "" {
 				g := graphviz.New()
-				format, err := veranocli.GetFormat(ctx.Path("graph"))
+				format, err := vcli.GetFormat(ctx.Path("graph"))
 				if err != nil {
 					return err
 				}

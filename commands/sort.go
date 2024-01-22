@@ -7,7 +7,7 @@ import (
 	"github.com/urfave/cli/v2"
 	"github.com/vanillaiice/verano/graph"
 	"github.com/vanillaiice/verano/util"
-	"github.com/vanillaiice/veranocli"
+	"github.com/vanillaiice/veranocli/vcli"
 )
 
 // Sort returns a command for topologically sorting activities.
@@ -29,7 +29,7 @@ func Sort() (cmd *cli.Command) {
 				Name:    "start",
 				Aliases: []string{"d"},
 				Usage:   "start date of the project",
-				Value:   time.Now().Format(veranocli.TimeFormat),
+				Value:   time.Now().Format(vcli.TimeFormat),
 			},
 			&cli.BoolFlag{
 				Name:    "quiet",
@@ -58,25 +58,25 @@ func Sort() (cmd *cli.Command) {
 			},
 		},
 		Action: func(ctx *cli.Context) error {
-			activities, err := veranocli.Sort(ctx.Path("file"), ctx.String("start"))
+			activities, err := vcli.Sort(ctx.Path("file"), ctx.String("start"))
 			if err != nil {
 				return err
 			}
 
 			if !ctx.Bool("quiet") {
 				if ctx.Bool("raw") {
-					veranocli.PrintRaw(activities)
+					vcli.PrintRaw(activities)
 				} else {
-					veranocli.PrintPretty(activities, !ctx.Bool("plain"))
+					vcli.PrintPretty(activities, !ctx.Bool("plain"))
 				}
 			}
 
 			if ctx.Path("output") != "" {
-				err = veranocli.WriteFile(ctx.Path("output"), activities)
+				err = vcli.WriteFile(ctx.Path("output"), activities)
 			}
 
 			if ctx.Path("graph") != "" {
-				format, err := veranocli.GetFormat(ctx.Path("graph"))
+				format, err := vcli.GetFormat(ctx.Path("graph"))
 				if err != nil {
 					return err
 				}
