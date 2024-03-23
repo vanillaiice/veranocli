@@ -30,7 +30,7 @@ USAGE:
    verano cli [global options] command [command options] 
 
 VERSION:
-   v0.0.9
+   v0.0.10
 
 AUTHOR:
    Vanillaiice <vanillaiice1@proton.me>
