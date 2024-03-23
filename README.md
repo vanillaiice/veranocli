@@ -30,7 +30,7 @@ USAGE:
    verano cli [global options] command [command options] 
 
 VERSION:
-   v0.0.7
+   v0.0.9
 
 AUTHOR:
    Vanillaiice <vanillaiice1@proton.me>
@@ -62,6 +62,19 @@ Id  Description   Duration  Start             Finish            Cost
 ```
 
 ![activities](https://github.com/vanillaiice/veranocli/assets/120596571/2c55d72a-40f2-4293-bdc2-58de09bb91f8)
+
+Sorting and updating the timeline of a list of activities in xlsx format:
+
+```sh
+$ veranocli sort -f activities.xlsx
+Id  Description   Duration  Start              Finish             Cost   
+6   Get money     36h0m0s   23 Mar 2024 21:23  25 Mar 2024 09:23  0      
+1   Tip landlord  6h0m0s    25 Mar 2024 09:23  25 Mar 2024 15:23  10000  
+2   Buy eggs      20m0s     25 Mar 2024 09:23  25 Mar 2024 09:43  20     
+3   Buy pan       15m0s     25 Mar 2024 09:23  25 Mar 2024 09:38  30     
+5   Cook eggs     10m0s     25 Mar 2024 09:43  25 Mar 2024 09:53  0      
+4   Eat eggs      5m0s      25 Mar 2024 15:23  25 Mar 2024 15:28  0      
+```
 
 # Author
 
