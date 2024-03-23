@@ -8,6 +8,7 @@ import (
 	"github.com/goccy/go-graphviz"
 	"github.com/tealeg/xlsx/v3"
 	"github.com/vanillaiice/verano/activity"
+	"github.com/vanillaiice/verano/db"
 	"github.com/vanillaiice/verano/parser/pcsv"
 	"github.com/vanillaiice/verano/parser/pjson"
 	"github.com/vanillaiice/verano/parser/pxlsx"
@@ -46,7 +47,7 @@ func WriteFile(filename string, activities []*activity.Activity) (err error) {
 	ext := filepath.Ext(filename)
 	switch ext {
 	case ".db":
-		err = InsertActivities(activities, filename)
+		err = InsertActivities(activities, filename, db.None)
 	case ".json":
 		err = pjson.ActivitiesToJSON(activities, file)
 	case ".csv":

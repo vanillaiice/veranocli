@@ -20,8 +20,7 @@ func GetActivities(dbPath string, ids []int) (activities []*activity.Activity, e
 	if err != nil {
 		return
 	}
-	activities, err = sqldb.GetActivities(ids)
-	return
+	return sqldb.GetActivities(ids)
 }
 
 // GetActivitiesAll retrieves all activities from the database located at 'dbPath'.
@@ -31,38 +30,36 @@ func GetActivitiesAll(dbPath string) (activities []*activity.Activity, err error
 	if err != nil {
 		return
 	}
-	activities, err = sqldb.GetActivitiesAll()
-	return
+	return sqldb.GetActivitiesAll()
 }
 
 // InsertActivity inserts the provided 'act' activity into the database located at 'dbPath'.
 // The optional 'duplicateInsertPolicy' parameter specifies the policy for handling duplicate inserts.
 // It returns an error if the insertion operation encounters any issues.
-func InsertActivity(act *activity.Activity, dbPath string, duplicateInsertPolicy ...db.DuplicateInsertPolicy) (err error) {
+func InsertActivity(act *activity.Activity, dbPath string, duplicateInsertPolicy db.DuplicateInsertPolicy) (err error) {
 	sqldb, err := db.New(dbPath)
 	if err != nil {
 		return
 	}
-	_, err = sqldb.InsertActivity(act, duplicateInsertPolicy...)
+	_, err = sqldb.InsertActivity(act, duplicateInsertPolicy)
 	return
 }
 
 // InsertActivities inserts the provided slice of activities 'acts' into the database located at 'dbPath'.
 // The optional 'duplicateInsertPolicy' parameter specifies the policy for handling duplicate inserts.
 // It returns an error if the insertion operation encounters any issues.
-func InsertActivities(acts []*activity.Activity, dbPath string, duplicateInsertPolicy ...db.DuplicateInsertPolicy) (err error) {
+func InsertActivities(acts []*activity.Activity, dbPath string, duplicateInsertPolicy db.DuplicateInsertPolicy) (err error) {
 	sqldb, err := db.New(dbPath)
 	if err != nil {
 		return
 	}
-	err = sqldb.InsertActivities(acts, duplicateInsertPolicy...)
-	return
+	return sqldb.InsertActivities(acts, duplicateInsertPolicy)
 }
 
 // UpdateActivity updates the specified field of the activity with 'id' in the database located at 'dbPath'.
 // The 'field' parameter specifies the field to be updated, and 'value' is the new value for that field.
 // It returns an error if the update operation encounters any issues.
-func UpdateActivity(dbPath string, id int, field string, value string) (err error) {
+func UpdateActivity(dbPath string, id int, field, value string) (err error) {
 	sqldb, err := db.New(dbPath)
 	if err != nil {
 		return
