@@ -57,7 +57,7 @@ func DB() (cmd *cli.Command) {
 					} else if ctx.Bool("replace") {
 						err = veranocli.InsertActivities(activities, ctx.Path("db"), db.Replace)
 					} else {
-						err = veranocli.InsertActivities(activities, ctx.Path("db"))
+						err = veranocli.InsertActivities(activities, ctx.Path("db"), db.None)
 					}
 
 					return err

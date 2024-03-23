@@ -10,9 +10,9 @@ import (
 
 func main() {
 	app := &cli.App{
-		Name:    "verano cli",
+		Name:    "verano cli - manage activities in your project from the terminal",
 		Suggest: true,
-		Version: "v0.0.7",
+		Version: "v0.0.8",
 		Authors: []*cli.Author{{Name: "Vanillaiice", Email: "vanillaiice1@proton.me"}},
 		Usage:   "manage activities in a project",
 		Commands: []*cli.Command{
